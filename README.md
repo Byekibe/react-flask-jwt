@@ -1,2 +1,2 @@
-# react-flask-jwt
+# React-flask-jwt
 Authentication in React-Flask application
