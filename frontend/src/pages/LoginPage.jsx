@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { UserAuthToken } from "../context/UserAuthContext.jsx";
 import { useNavigate } from "react-router-dom";
+import Header from "../components/Header.jsx";
 
 const LoginPage = () => {
     const [email, setEmail] = useState("");
@@ -32,7 +33,8 @@ const LoginPage = () => {
                 console.log(`Data: ${JSON.stringify(data)}`);
                 if (data.msg !== "Wrong credentials") {
                     sessionStorage.setItem("token", data.access_token)
-                    navigate("/")
+                    // navigate("/")
+                    window.location.href = "/";
                 }
                 
                 // if (token != null) {
@@ -50,6 +52,7 @@ const LoginPage = () => {
 
     return (
         <>
+        <Header />
         {
             (token && token !="" && token != undefined)? "You are logged in with token" + token : (
 

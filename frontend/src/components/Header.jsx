@@ -3,12 +3,13 @@ import { useContext } from "react";
 import { UserAuthToken } from "../context/UserAuthContext";
 
 const Header = () => {
-    const { logout } = useContext(UserAuthToken);
+    const { logout, token } = useContext(UserAuthToken);
 
     return (
+        <>
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container">
-                <a className="navbar-brand" href="#">Navbar</a>
+                <Link to="/" className="navbar-brand">JWT</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
                 </button>
@@ -28,13 +29,21 @@ const Header = () => {
                     </li>
                 </ul>
                 <div className="d-flex ms-auto">
-                    <button onClick={logout} className="btn btn-outline-primary">
-                        Logout
-                    </button>
+                    {
+                        token && (
+                            <button onClick={logout} className="btn btn-outline-primary me-2">
+                                Logout
+                            </button>
+                        )
+                    }
+                    { !token && <Link to="/login" className="btn btn-outline-primary">
+                        Log in
+                    </Link>}
                 </div>
                 </div>
             </div>
         </nav>
+        </>
     )
 };
 

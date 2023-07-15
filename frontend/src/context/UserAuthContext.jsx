@@ -13,7 +13,7 @@ const UserTokenProvider = ({ children }) => {
         const tokenItem = sessionStorage.getItem("token");
 
         setToken(tokenItem)
-    }, []);
+    }, [token]);
 
 
     const logout = () => {

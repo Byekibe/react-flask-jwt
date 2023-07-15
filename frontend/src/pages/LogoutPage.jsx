@@ -10,7 +10,8 @@ const LogoutPage = () => {
                 </h1>
                 
 
-                <Link className='btn btn-outline-primary' to="/login">Log in</Link>
+                {/* <Link className='btn btn-outline-primary' to="/login">Log in</Link> */}
+                {window.location.href = "/login"}
 
             </div>
         </>
